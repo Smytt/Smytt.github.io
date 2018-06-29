@@ -67,14 +67,15 @@ var htmlBuilder = (() => {
                 .attr('movieID', movie['id'])
                 .on('click', app.showMovie);
 
-            if (movie['poster_path']) {
-                $div.append($('<img>').attr('src', 'https://image.tmdb.org/t/p/w500' + movie['poster_path']))
-                var $yr = $('<span>').addClass('year').text(movie['release_date'].substr(0, 4));
-                var $title = $('<span>').addClass('title').text(movie['title']);
-                var $subtitle = $('<span>').addClass('subtitle').text(movie['overview']);
+            var poster = movie['poster_path'] ? '"https://image.tmdb.org/t/p/w500' + movie['poster_path'] + '"' : 'images/poster.png';
 
-                $div.append($('<div>').addClass("small-info").append($yr, $title, $subtitle))
-            }
+            $div.append($('<div>').addClass('small-poster').css('background-image', 'url(' + poster + ')'))
+            var $yr = $('<span>').addClass('year').text(movie['release_date'].substr(0, 4));
+            var $title = $('<span>').addClass('title').text(movie['title']);
+            var $subtitle = $('<span>').addClass('subtitle').text(movie['overview']);
+
+            $div.append($('<div>').addClass("small-info").append($yr, $title, $subtitle))
+
             $results.append($div)
         }
 
@@ -85,11 +86,12 @@ var htmlBuilder = (() => {
         $content.empty();
         $home.hide();
 
-        $movieHolder.addClass('movie').css('background-image', 'url("https://image.tmdb.org/t/p/w500' + movie['poster_path'] + '")')
+        var poster = movie['poster_path'] ? '"https://image.tmdb.org/t/p/w500' + movie['poster_path'] + '"' : 'images/poster.png';
+        $movieHolder.addClass('movie').css('background-image', 'url(' + poster + ')')
 
-        $content.append($("<img>")
+        $content.append($("<div>")
             .addClass('poster')
-            .attr('src', 'https://image.tmdb.org/t/p/w500' + movie['poster_path']))
+            .css('background-image', 'url(' + poster + ')'))
 
         var $section = $('<section>').addClass('movie-info');
 
@@ -104,9 +106,10 @@ var htmlBuilder = (() => {
             .appendTo($section);
 
         var $castInfo = $('<div>').addClass('more-info').attr('id', 'cast-info').css('display', 'none');
-        for (var actor of castAndCrew['cast'].slice(0, 10)) {
+        for (var actor of castAndCrew['cast'].slice(0, 20)) {
+            var photo = actor['profile_path'] ? '"https://image.tmdb.org/t/p/w500' + actor['profile_path'] + '"' : 'images/poster.png';
             $('<div>').addClass('one-item')
-                .append($('<img>').attr('src', actor['profile_path'] ? 'https://image.tmdb.org/t/p/w500' + actor['profile_path'] : ''))
+                .append($('<div>').css('background-image', 'url(' + photo + ')'))
                 .append($('<span>').addClass('title').text(actor['name']))
                 .append($('<span>').addClass('subtitle').text(actor['character']))
                 .appendTo($castInfo)
@@ -122,7 +125,7 @@ var htmlBuilder = (() => {
 
         var $triviaInfo = $('<div>').addClass('more-info').attr('id', 'trivia-info').css('display', 'none');
         $triviaInfo.append($('<h3>').text('Runtime'))
-        $triviaInfo.append($('<p>').text(movie['runtime'] + 'minutes'))
+        $triviaInfo.append($('<p>').text(movie['runtime'] + ' minutes'))
         $triviaInfo.append($('<h3>').text('Budget'))
         $triviaInfo.append($('<p>').text('$ ' + movie['budget'].toLocaleString('en')))
         $triviaInfo.append($('<h3>').text('Revenue'))

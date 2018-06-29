@@ -175,7 +175,9 @@ footer ul li a {
 }
 
 .poster {
+    position: relative;
     width: 40%;
+    padding-top: 60%;
     float: left;
     border-radius: 40px 40px 40px 0;
     box-shadow: 5px 5px #fff;
@@ -287,6 +289,8 @@ main li a:hover, main li a.current {
     box-sizing: border-box;
     display: block;
     margin-bottom: 0;
+    transition: 0.3s;
+    border-radius: 60px 60px 60px 0;
 }
 
 .results .one-item:hover {
@@ -294,9 +298,23 @@ main li a:hover, main li a.current {
     cursor: pointer;
 }
 
+.results .one-item div.small-poster {
+    position: relative;
+    display: block;
+    width: 150px;
+    box-shadow: 2px 2px #fff;
+    margin-bottom: 10px;
+    padding-top: 225px;
+    float: left;
+    background-position: center center;
+    background-size: 110%;
+    transition: 0.3s;
+    border-radius: 40px 40px 40px 0;
+}
+
 .results .small-info {
     float: left;
-    width: 1040px;
+    width: 900px;
     margin-left: 20px;
 }
 
@@ -317,11 +335,21 @@ main li a:hover, main li a.current {
     margin-bottom: 25px;
     color: #fff;
     font-size: 52px;
+    transition: 0.3s;
 }
 
 .results .year {
     color: #ddd;
     font-size: 32px;
+    transition: 0.3s;
+
+}
+
+.results .one-item:hover div.small-poster {
+    background-size: 100%;
+}
+.results .one-item:hover .title, .results .one-item:hover .year  {
+   padding-left: 30px;
 }
 
 .results .subtitle {
@@ -330,8 +358,20 @@ main li a:hover, main li a.current {
     margin: 0;
 }
 
-@media screen and (max-width: 1240px) {
-    .wrapper {
-        width: 100%;
-    }
+.movie-info .one-item {
+    vertical-align: top;
+}
+
+.movie-info .one-item div {
+    height: 150px;
+    background-size: 110%;
+    background-position: center center;
+    border-radius: 40px 40px 40px 0;
+    box-shadow: 2px 2px #fff;
+    margin-bottom: 10px;
+    transition: 0.2s;
+}
+
+.movie-info .one-item div:hover {
+    background-size: 100%;
 }
