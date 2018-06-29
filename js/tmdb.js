@@ -1,25 +1,25 @@
-tmdb = (() => {
+var tmdb = (() => {
 
-    var base = 'https://api.themoviedb.org/3';
+    const BASE = 'https://api.themoviedb.org/3';
 
-    var api = '?api_key=';
-    var key = 'b75a086ec6e11c142e5abb302788ad20';
+    const API_CMD = '?api_key=';
+    const API_KEY = 'b75a086ec6e11c142e5abb302788ad20';
 
-    var searchMovie = '/search/movie';
-    var findOne = '/movie/';
-    var credits = '/credits';
-    var discover = '/discover/movie'
+    const SEARCH_MOVIE = '/search/movie';
+    const FIND_ONE = '/movie/';
+    const CREDITS = '/credits';
+    const DISCOVER = '/discover/movie'
 
-    var query = '&query=';
-    var page = '&page=';
-    var sort = '&sort_by=popularity.desc';
+    const QUERY_CMD = '&query=';
+    const PAGE_CMD = '&page=';
+    const SORT_CMD = '&sort_by=popularity.desc';
 
     var search = (title, pageNum) => {
         $.ajax({
             type: 'GET',
-            url: base + searchMovie + api + key + query + title + page + pageNum,
-            success: (data) => {
-                htmlBuilder.results(data, pageNum);
+            url: BASE + SEARCH_MOVIE + API_CMD + API_KEY + QUERY_CMD + title + PAGE_CMD + pageNum,
+            success: (response) => {
+                htmlBuilder.results(response);
             },
             error: () => {
                 console.log("Could not retrieve movie list");
@@ -28,43 +28,45 @@ tmdb = (() => {
     }
 
     var findById = (id) => {
-        var castAndCrew;
 
-        $.ajax({
-            type: 'GET',
-            url: base + findOne + id + credits + api + key,
-            success: (data) => {
-                castAndCrew = data;
-            },
-            error: () => {
-                console.log("Could not retrieve movie cast and crew");
-            },
-        })
+        var requestMovieDetails = (response) => {
+            $.ajax({
+                type: 'GET',
+                url: BASE + FIND_ONE + id + API_CMD + API_KEY,
+                success: (data) => {
+                    htmlBuilder.movie(data, response);
+                },
+                error: () => {
+                    console.log("Could not retrieve movie details");
+                },
+            })
+        }
 
-        $.ajax({
-            type: 'GET',
-            url: base + findOne + id + api + key,
-            success: (data) => {
-                console.log(castAndCrew);
-                htmlBuilder.movie(data, castAndCrew);
-            },
-            error: () => {
-                console.log("Could not retrieve movie details");
-            },
-        })
+        var requestCastAndCrew = () => {
+            $.ajax({
+                type: 'GET',
+                url: BASE + FIND_ONE + id + CREDITS + API_CMD + API_KEY,
+                success: requestMovieDetails,
+                error: () => {
+                    console.log("Could not retrieve movie cast and crew");
+                },
+            })
+        }
+
+        requestCastAndCrew();
+
     }
 
-    var getRandomId = () => {
-        var rndPage = Math.floor(Math.random()*50);
-        var rndItem = Math.floor(Math.random()*20);
+    var getRandomId = (page, item) => {
         $.ajax({
             type: 'GET',
-            url: base + discover + api + key + sort + page + rndPage,
+            url: BASE + DISCOVER + API_CMD + API_KEY + SORT_CMD + PAGE_CMD + page,
             success: (data) => {
-                findById(data['results'][rndItem]['id']);
+                var randomId = data['results'][item]['id'];
+                findById(randomId);
             },
             error: () => {
-                console.log("Could not retrieve total movies count");
+                console.log("Could not retrieve total movies count, can't generate random id");
             },
         })
     }

@@ -1,30 +1,29 @@
-htmlBuilder = (() => {
+var htmlBuilder = (() => {
 
     var $content = $('#content');
     var $home = $('#home');
     var $movieHolder = $('#movie-bg');
 
-    var selectedMovie;
-    var movieCastAndCrew;
+    var switchInfo = function () {
 
-    var showCast = function () {
-        $(this).closest('ul').find('.current').removeClass('current');
-        $(this).addClass('current');
-        $('.more-info').hide();
-        $('#cast-info').show();
-    }
-    var showCrew = function () {
-        $(this).closest('ul').find('.current').removeClass('current');
-        $(this).addClass('current');
-        $('.more-info').hide();
-        $('#crew-info').show();
-    }
+        //generate tabId from clicked link
+        var tabId = '#' + $(this).attr('id') + '-info';
 
-    var showTrivia = function () {
+        //check if this is the initial click
+        if ($('.current-info').length === 0) {
+            $(tabId).fadeIn(300).addClass('current-info');
+            return;
+        }
+
+        //switch from one tab to another
         $(this).closest('ul').find('.current').removeClass('current');
         $(this).addClass('current');
-        $('.more-info').hide();
-        $('#trivia-info').show();
+        $('.current-info')
+            .removeClass('current-info')
+            .fadeOut(300, () => {
+                $(tabId).fadeIn(300).addClass('current-info');
+            });
+
     }
 
     var home = () => {
@@ -35,21 +34,33 @@ htmlBuilder = (() => {
 
     }
 
-    var results = (movies, pageNum) => {
+    var results = (response) => {
         $content.empty();
 
         var $ul = $('<ul>')
-        if (pageNum > 1) {
-            $('<li>').append($('<a>').attr('id', 'prevPage').text('Previous')).appendTo($ul)
+        if (response['page'] > 1) {
+            $('<li>').append($('<a>')
+                .attr('id', 'prevPage')
+                .on('click', () => {
+                    app.searchMovies($home.find('input[type=text]').val(), response['page'] - 1)
+                })
+                .text('Previous')
+            ).appendTo($ul)
         }
-        if (pageNum < movies['total_pages']) {
-            $('<li>').append($('<a>').attr('id', 'nextPage').text('Next')).appendTo($ul)
+        if (response['page'] < response['total_pages']) {
+            $('<li>').append($('<a>')
+                .attr('id', 'nextPage')
+                .on('click', () => {
+                    app.searchMovies($home.find('input[type=text]').val(), response['page'] + 1)
+                })
+                .text('Next')
+            ).appendTo($ul)
         }
 
         var $results = $('<div>').addClass('results');
         $results.append($ul);
 
-        for (var movie of movies.results) {
+        for (var movie of response.results) {
             var $div = $('<div>')
                 .addClass('one-item')
                 .addClass('clearfix')
@@ -87,13 +98,13 @@ htmlBuilder = (() => {
             .append($('<p>').addClass('description').text(movie['overview']))
 
         $('<ul>')
-            .append($('<li>').append($('<a>').attr('id', 'cast').text('Cast').on('click', showCast)))
-            .append($('<li>').append($('<a>').attr('id', 'crew').text('Crew').on('click', showCrew)))
-            .append($('<li>').append($('<a>').attr('id', 'trivia').text('Trivia').on('click', showTrivia)))
+            .append($('<li>').append($('<a>').attr('id', 'cast').text('Cast').on('click', switchInfo)))
+            .append($('<li>').append($('<a>').attr('id', 'crew').text('Crew').on('click', switchInfo)))
+            .append($('<li>').append($('<a>').attr('id', 'trivia').text('Trivia').on('click', switchInfo)))
             .appendTo($section);
 
         var $castInfo = $('<div>').addClass('more-info').attr('id', 'cast-info').css('display', 'none');
-        for (var actor of castAndCrew['cast'].slice(0,10)) {
+        for (var actor of castAndCrew['cast'].slice(0, 10)) {
             $('<div>').addClass('one-item')
                 .append($('<img>').attr('src', actor['profile_path'] ? 'https://image.tmdb.org/t/p/w500' + actor['profile_path'] : ''))
                 .append($('<span>').addClass('title').text(actor['name']))
@@ -103,7 +114,7 @@ htmlBuilder = (() => {
         $castInfo.appendTo($section);
 
         var $crewInfo = $('<div>').addClass('more-info').attr('id', 'crew-info').css('display', 'none');
-        for (var member of castAndCrew['crew'].slice(0,4)) {
+        for (var member of castAndCrew['crew'].slice(0, 4)) {
             $crewInfo.append($('<h3>').text(member['job']))
             $crewInfo.append($('<p>').text(member['name']))
         }
@@ -116,6 +127,8 @@ htmlBuilder = (() => {
         $triviaInfo.append($('<p>').text('$ ' + movie['budget'].toLocaleString('en')))
         $triviaInfo.append($('<h3>').text('Revenue'))
         $triviaInfo.append($('<p>').text('$ ' + movie['revenue'].toLocaleString('en')))
+        $triviaInfo.append($('<h3>').text('Genres'))
+        $triviaInfo.append($('<p>').text(movie['genres'].map(x => x['name']).slice(0, 10).join(", ")))
         $triviaInfo.appendTo($section);
 
         $content.append($section);

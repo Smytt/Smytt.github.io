@@ -1,4 +1,5 @@
-app = (() => {
+var app = (() => {
+    var $content = $('#content');
 
     var loadHome = (e) => {
         if (e) {
@@ -9,15 +10,26 @@ app = (() => {
 
     var discover = (e) => {
         e.preventDefault();
-        tmdb.getRandomId();
+        var page = Math.floor(Math.random()*50);
+        var item = Math.floor(Math.random()*20);
+        tmdb.getRandomId(page, item);
     }
 
-    var searchMovies = () => {
+
+    var searchMovies = (title, pageNum) => {
+        tmdb.search(title, pageNum);
+    }
+
+    var triggerSearchMovies = (e) => {
+        e.preventDefault();
         var title = $('#titleInput').val();
-        tmdb.search(title, 1);
+        if (title) {
+            searchMovies(title, 1)
+        }
     }
 
     var showMovie = function (e) {
+        e.preventDefault();
         var movieId = $(this).attr('movieID');
         tmdb.findById(movieId);
     }
@@ -25,12 +37,13 @@ app = (() => {
     //attach initial events
     $('#logo').on('click', loadHome);
     $('#discover').on('click', discover);
-    $('#search').on('click', searchMovies);
+    $('#search').on('click', triggerSearchMovies);
 
     return {
         loadHome,
         discover,
         searchMovies,
+        triggerSearchMovies,
         showMovie
     }
 })();
