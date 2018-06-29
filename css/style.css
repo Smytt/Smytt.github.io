@@ -181,6 +181,8 @@ footer ul li a {
     float: left;
     border-radius: 40px 40px 40px 0;
     box-shadow: 5px 5px #fff;
+    background-position: center center;
+    background-size: 100%;
 }
 
 .movie-info {
