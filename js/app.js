@@ -5,7 +5,7 @@ var app = (() => {
         if (e) {
             e.preventDefault();
         }
-        htmlBuilder.home();
+        render.home();
     }
 
     var discover = (e) => {
@@ -21,6 +21,9 @@ var app = (() => {
     }
 
     var triggerSearchMovies = (e) => {
+        if (e.type === 'keypress' && e.which !== 13) {
+            return;
+        }
         e.preventDefault();
         var title = $('#titleInput').val();
         if (title) {
@@ -38,6 +41,7 @@ var app = (() => {
     $('#logo').on('click', loadHome);
     $('#discover').on('click', discover);
     $('#search').on('click', triggerSearchMovies);
+    $('#titleInput').on('keypress', triggerSearchMovies);
 
     return {
         loadHome,

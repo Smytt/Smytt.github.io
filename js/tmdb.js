@@ -19,7 +19,7 @@ var tmdb = (() => {
             type: 'GET',
             url: BASE + SEARCH_MOVIE + API_CMD + API_KEY + QUERY_CMD + title + PAGE_CMD + pageNum,
             success: (response) => {
-                htmlBuilder.results(response);
+                render.results(response);
             },
             error: () => {
                 console.log("Could not retrieve movie list");
@@ -34,7 +34,7 @@ var tmdb = (() => {
                 type: 'GET',
                 url: BASE + FIND_ONE + id + API_CMD + API_KEY,
                 success: (data) => {
-                    htmlBuilder.movie(data, response);
+                    render.movie(data, response);
                 },
                 error: () => {
                     console.log("Could not retrieve movie details");
@@ -63,6 +63,7 @@ var tmdb = (() => {
             url: BASE + DISCOVER + API_CMD + API_KEY + SORT_CMD + PAGE_CMD + page,
             success: (data) => {
                 var randomId = data['results'][item]['id'];
+                console.log(randomId);
                 findById(randomId);
             },
             error: () => {

@@ -1,0 +1,102 @@
+@media screen and (max-width: 1240px) {
+    .wrapper {
+        width: 100%;
+        padding: 0 20px;
+        box-sizing: border-box;
+    }
+
+    .movie {
+        background-size: cover;
+        background-position: top center;
+    }
+
+    .movie h1 {
+        font-size: 38px;
+        margin-top: 34px;
+    }
+}
+
+@media screen and (max-width: 960px) {
+    .movie h1 {
+        font-size: 30px;
+        margin-top: 42px;
+    }
+
+    .movie-info {
+        padding-left: 30px;
+    }
+
+    .home input, .home button {
+        font-size: 32px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    .poster {
+        width: 60%;
+        padding-top: 90%;
+        margin: 0 auto;
+        float: none;
+
+    }
+
+    .home input, .home button {
+        display: block;
+        width:  100%;
+        margin: 10px 0;
+    }
+
+    .home button {
+        margin-bottom: 50px;
+    }
+    .movie h1 {
+        font-size: 42px;
+        margin-top: 30px;
+        text-align: center;
+    }
+
+    .movie h1 span {
+        display: block;
+        text-align: center;
+    }
+    p.description {
+        margin: 20px 0;
+    }
+
+    .movie-info {
+        width: 100%;
+        padding: 0;
+        text-align: center;
+    }
+
+    .more-info, .more-info > * {
+        text-align: center;
+    }
+
+    .movie-info ul {
+        margin-bottom: 20px;
+    }
+
+    .movie-info ul li {
+        display: block;
+        padding: 2px 0;
+        margin: 0;
+    }
+
+    .movie-info ul li a {
+        display: block;
+    }
+
+    .movie-info .one-item {
+        margin-right: 5px;
+        margin-left: 5px;
+    }
+
+    .logo, .discover {
+        float: none;
+        display: block;
+        margin:  0 auto 20px auto;
+        text-align: center;
+    }
+}
