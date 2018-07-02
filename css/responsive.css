@@ -64,6 +64,10 @@
         margin: 20px 0;
     }
 
+    strong.full-title {
+        margin-bottom: 20px;
+    }
+
     .movie-info {
         width: 100%;
         padding: 0;

@@ -10,8 +10,14 @@ var app = (() => {
 
     var discover = (e) => {
         e.preventDefault();
-        var page = Math.floor(Math.random()*50);
-        var item = Math.floor(Math.random()*20);
+
+        var page, item;
+
+        while (!page || page === 0) {
+            page = Math.floor(Math.random() * 50);
+            item = Math.floor(Math.random() * 20);
+        }
+
         tmdb.getRandomId(page, item);
     }
 
