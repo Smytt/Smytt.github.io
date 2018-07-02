@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2f9d7234-4799-432e-b7d0-20b7829c6568" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/responsive.css" afterPath="$PROJECT_DIR$/css/responsive.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/app.js" afterPath="$PROJECT_DIR$/js/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/render.js" afterPath="$PROJECT_DIR$/js/render.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -15,7 +14,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/app.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="204">
@@ -25,21 +24,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="render.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="render.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/render.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="237" column="16" lean-forward="true" selection-start-line="237" selection-start-column="16" selection-end-line="237" selection-end-column="16" />
+            <state relative-caret-position="748">
+              <caret line="171" column="52" lean-forward="false" selection-start-line="171" selection-start-column="52" selection-end-line="171" selection-end-column="52" />
               <folding>
                 <element signature="e#302#458#0" expanded="false" />
                 <element signature="e#492#2970#0" expanded="false" />
                 <element signature="e#893#1694#0" expanded="false" />
                 <element signature="e#1737#2964#0" expanded="false" />
-                <element signature="e#3012#7277#0" expanded="false" />
                 <element signature="e#3253#4139#0" expanded="false" />
                 <element signature="e#4176#4623#0" expanded="false" />
-                <element signature="e#4662#5559#0" expanded="false" />
-                <element signature="e#7305#8003#0" expanded="false" />
+                <element signature="e#7567#8265#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -149,10 +146,10 @@
         <option value="$PROJECT_DIR$/js/generate-html.js" />
         <option value="$PROJECT_DIR$/js/tmdb.js" />
         <option value="$PROJECT_DIR$/css/style.css" />
-        <option value="$PROJECT_DIR$/js/render.js" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/css/responsive.css" />
         <option value="$PROJECT_DIR$/js/app.js" />
+        <option value="$PROJECT_DIR$/js/render.js" />
       </list>
     </option>
   </component>
@@ -380,7 +377,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1530017196730</updated>
-      <workItem from="1530017198247" duration="82321000" />
+      <workItem from="1530017198247" duration="83179000" />
     </task>
     <task id="LOCAL-00001" summary="working">
       <created>1530217677652</created>
@@ -438,11 +435,18 @@
       <option name="project" value="LOCAL" />
       <updated>1530526975795</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="fixes">
+      <created>1530527880161</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1530527880161</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="82321000" />
+    <option name="totallyTimeSpent" value="83179000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="10" y="4" width="1315" height="1006" extended-state="0" />
@@ -490,7 +494,8 @@
     <MESSAGE value="design improvements" />
     <MESSAGE value="responsive" />
     <MESSAGE value="turned off autocomplete" />
-    <option name="LAST_COMMIT_MESSAGE" value="turned off autocomplete" />
+    <MESSAGE value="fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -565,29 +570,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/render.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="237" column="16" lean-forward="true" selection-start-line="237" selection-start-column="16" selection-end-line="237" selection-end-column="16" />
-          <folding>
-            <element signature="e#302#458#0" expanded="false" />
-            <element signature="e#492#2970#0" expanded="false" />
-            <element signature="e#893#1694#0" expanded="false" />
-            <element signature="e#1737#2964#0" expanded="false" />
-            <element signature="e#3012#7277#0" expanded="false" />
-            <element signature="e#3253#4139#0" expanded="false" />
-            <element signature="e#4176#4623#0" expanded="false" />
-            <element signature="e#4662#5559#0" expanded="false" />
-            <element signature="e#7305#8003#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/render.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="748">
+          <caret line="171" column="52" lean-forward="false" selection-start-line="171" selection-start-column="52" selection-end-line="171" selection-end-column="52" />
+          <folding>
+            <element signature="e#302#458#0" expanded="false" />
+            <element signature="e#492#2970#0" expanded="false" />
+            <element signature="e#893#1694#0" expanded="false" />
+            <element signature="e#1737#2964#0" expanded="false" />
+            <element signature="e#3253#4139#0" expanded="false" />
+            <element signature="e#4176#4623#0" expanded="false" />
+            <element signature="e#7567#8265#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -154,12 +154,22 @@ var render = (() => {
                 .slice(0, 10)
                 .join(", ");
 
+            var runtime = movie['runtime'] ?
+                movie['runtime'] + ' minutes' :
+                'unknown';
+
+            var budget = movie['budget'] ?
+                '$ ' + movie['budget'].toLocaleString('en') : 'unknown';
+
+            var revenue = movie['revenue'] ?
+                '$ ' + movie['revenue'].toLocaleString('en') : 'unknown';
+
             $triviaInfo.append($('<h3>').text('Runtime'))
-            $triviaInfo.append($('<p>').text(movie['runtime'] + ' minutes'))
+            $triviaInfo.append($('<p>').text(runtime))
             $triviaInfo.append($('<h3>').text('Budget'))
-            $triviaInfo.append($('<p>').text('$ ' + movie['budget'].toLocaleString('en')))
+            $triviaInfo.append($('<p>').text(budget))
             $triviaInfo.append($('<h3>').text('Revenue'))
-            $triviaInfo.append($('<p>').text('$ ' + movie['revenue'].toLocaleString('en')))
+            $triviaInfo.append($('<p>').text(revenue))
             $triviaInfo.append($('<h3>').text('Genres'))
             $triviaInfo.append($('<p>').text(topGenres))
 
