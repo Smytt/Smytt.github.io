@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2f9d7234-4799-432e-b7d0-20b7829c6568" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/render.js" afterPath="$PROJECT_DIR$/js/render.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -377,7 +376,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1530017196730</updated>
-      <workItem from="1530017198247" duration="83179000" />
+      <workItem from="1530017198247" duration="83194000" />
     </task>
     <task id="LOCAL-00001" summary="working">
       <created>1530217677652</created>
@@ -442,11 +441,18 @@
       <option name="project" value="LOCAL" />
       <updated>1530527880161</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="minor bug fixes">
+      <created>1530533352316</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1530533352317</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="83179000" />
+    <option name="totallyTimeSpent" value="83194000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="10" y="4" width="1315" height="1006" extended-state="0" />
@@ -495,7 +501,8 @@
     <MESSAGE value="responsive" />
     <MESSAGE value="turned off autocomplete" />
     <MESSAGE value="fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixes" />
+    <MESSAGE value="minor bug fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="minor bug fixes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
