@@ -19,6 +19,7 @@ var show = (() => {
                     $home.hide();
                     $content.append($movie);
                     $content.find('.movie-info ul a').on('click', switchInfo);
+                    $content.find('.movie-info .actor').on('click', app.loadActor);
                 },
                 error: () => {
                 console.log("Could not load movie template");
@@ -36,7 +37,21 @@ var show = (() => {
                 $content.find('ul a').on('click', function () {
                     app.searchMovies($searchField.val(), $(this).attr('pageNum'))
                 })
-                $content.find('.results .one-item').on('click', app.showMovie)
+                $content.find('.results .one-item').on('click', app.loadMovie)
+            },
+            error: () => {
+                console.log("Could not load results template");
+            },
+        })
+    }
+
+    var actor = (actor) => {
+        $.ajax({
+            url: './templates/actor.html',
+            success: (tmpl) => {
+                var $actor = Mustache.render(tmpl, actor);
+                $content.empty();
+                $content.append($actor)
             },
             error: () => {
                 console.log("Could not load results template");
@@ -73,5 +88,6 @@ var show = (() => {
         results,
         movie,
         home,
+        actor
     }
 })()

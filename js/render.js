@@ -65,7 +65,8 @@ var render = (() => {
                     '"' + IMAGE_BASE + actor['profile_path'] + '"' :
                     NO_IMAGE,
                 name: actor['name'],
-                character: actor['character']
+                character: actor['character'],
+                id: actor['id']
             })
         })
 
@@ -80,8 +81,20 @@ var render = (() => {
         show.movie(movie);
     }
 
+    var actor = (actor) => {
+        var actor = {
+            name: actor['name'],
+            bio: actor['biography'],
+            image: actor['profile_path'] ?
+                '"' + IMAGE_BASE + actor['profile_path'] + '"' :
+                NO_IMAGE,
+        }
+        show.actor(actor);
+    }
+
     return {
         results,
-        movie
+        movie,
+        actor
     }
 })();

@@ -38,10 +38,17 @@ var app = (() => {
         }
     }
 
-    var showMovie = function (e) {
+    var loadMovie = function (e) {
         e.preventDefault();
         var movieId = $(this).attr('movieID');
-        tmdb.findById(movieId);
+        tmdb.findMovieById(movieId);
+    }
+
+
+    var loadActor = function (e) {
+        e.preventDefault();
+        var actorId = $(this).attr('actorID');
+        tmdb.findActorById(actorId);
     }
 
     //attach initial events
@@ -55,7 +62,8 @@ var app = (() => {
         discover,
         searchMovies,
         triggerSearchMovies,
-        showMovie
+        loadMovie,
+        loadActor
     }
 })();
 

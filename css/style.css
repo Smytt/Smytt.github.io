@@ -377,6 +377,10 @@ main li a:hover, main li a.current {
     vertical-align: top;
 }
 
+.movie-info .one-item:hover {
+    cursor: pointer;
+}
+
 .movie-info .one-item div {
     height: 150px;
     background-size: 110%;
@@ -387,6 +391,6 @@ main li a:hover, main li a.current {
     transition: 0.2s;
 }
 
-.movie-info .one-item div:hover {
+.movie-info .one-item:hover div {
     background-size: 100%;
 }

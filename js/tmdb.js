@@ -6,7 +6,8 @@ var tmdb = (() => {
     const API_KEY = 'b75a086ec6e11c142e5abb302788ad20';
 
     const SEARCH_MOVIE = '/search/movie';
-    const FIND_ONE = '/movie/';
+    const FIND_ONE_MOVIE = '/movie/';
+    const FIND_ONE_ACTOR = '/person/';
     const CREDITS = '/credits';
     const DISCOVER = '/discover/movie'
 
@@ -27,12 +28,25 @@ var tmdb = (() => {
         })
     }
 
-    var findById = (id) => {
+    var findActorById = (id) => {
+        $.ajax({
+            type: 'GET',
+            url: BASE + FIND_ONE_ACTOR + id + API_CMD + API_KEY,
+            success: (response) => {
+                render.actor(response);
+            },
+            error: () => {
+                console.log("Could not retrieve actor details");
+            },
+        })
+    }
+
+    var findMovieById = (id) => {
 
         var requestMovieDetails = (response) => {
             $.ajax({
                 type: 'GET',
-                url: BASE + FIND_ONE + id + API_CMD + API_KEY,
+                url: BASE + FIND_ONE_MOVIE + id + API_CMD + API_KEY,
                 success: (data) => {
                     render.movie(data, response);
                 },
@@ -45,7 +59,7 @@ var tmdb = (() => {
         var requestCastAndCrew = () => {
             $.ajax({
                 type: 'GET',
-                url: BASE + FIND_ONE + id + CREDITS + API_CMD + API_KEY,
+                url: BASE + FIND_ONE_MOVIE + id + CREDITS + API_CMD + API_KEY,
                 success: requestMovieDetails,
                 error: () => {
                     console.log("Could not retrieve movie cast and crew");
@@ -64,7 +78,7 @@ var tmdb = (() => {
             success: (data) => {
                 var randomId = data['results'][item]['id'];
                 console.log(randomId);
-                findById(randomId);
+                findMovieById(randomId);
             },
             error: () => {
                 console.log("Could not retrieve total movies count, can't generate random id");
@@ -74,7 +88,8 @@ var tmdb = (() => {
 
     return {
         search,
-        findById,
+        findMovieById,
+        findActorById,
         getRandomId
     }
 })();
