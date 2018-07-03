@@ -77,7 +77,6 @@ var tmdb = (() => {
             url: BASE + DISCOVER + API_CMD + API_KEY + SORT_CMD + PAGE_CMD + page,
             success: (data) => {
                 var randomId = data['results'][item]['id'];
-                console.log(randomId);
                 findMovieById(randomId);
             },
             error: () => {
