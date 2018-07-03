@@ -5,7 +5,8 @@ var app = (() => {
         if (e) {
             e.preventDefault();
         }
-        render.home();
+
+        show.home();
     }
 
     var discover = (e) => {

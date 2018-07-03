@@ -1,0 +1,47 @@
+<div class="full-width movie" id="movie-bg" style="background-image: url({{poster}});">
+    <div class="background-color">
+        <div class="wrapper clearfix">
+            <div class="poster" style="background-image: url({{poster}});">
+
+            </div>
+            <section class="movie-info">
+                <h1>{{title}}<span>{{year}}</span></h1>
+                <p class="description">{{description}}</p>
+                <strong class="full-title">Full title: {{fullTitle}}</strong>
+                <ul>
+                    <li><a id="cast">Cast</a></li>
+                    <li><a id="crew">Crew</a></li>
+                    <li><a id="trivia">Trivia</a></li>
+                </ul>
+
+                <div class="more-info" id="cast-info" style="display: none;">
+                    {{#actors}}
+                    <div class="one-item">
+                        <div style="background-image: url({{photo}});"></div>
+                        <span class="title">{{name}}</span><span class="subtitle">{{character}}</span>
+                    </div>
+                    {{/actors}}
+                </div>
+
+                <div class="more-info" id="crew-info" style="display: none;">
+                    {{#crew}}
+                    <h3>{{job}}</h3>
+                    <p>{{name}}</p>
+                    {{/crew}}
+                </div>
+
+                <div class="more-info" id="trivia-info" style="display: none;">
+                    <h3>Runtime</h3>
+                    <p>{{runtime}}</p>
+                    <h3>Budget</h3>
+                    <p>{{budget}}</p>
+                    <h3>Revenue</h3>
+                    <p>{{revenue}}</p>
+                    <h3>Genres</h3>
+                    <p>{{genres}}</p>
+                </div>
+            </section>
+
+        </div>
+    </div>
+</div>

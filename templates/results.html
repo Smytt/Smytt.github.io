@@ -1,0 +1,38 @@
+<div class="full-width" id="movie-bg">
+    <div class="background-color">
+        <div class="wrapper clearfix">
+            <div class="results">
+                {{#hasPages}}
+                <ul>
+                    {{#prevPage}}
+                    <li><a id="prevPage" pageNum="{{prevPage}}">Previous</a></li>
+                    {{/prevPage}}
+                    {{#nextPage}}
+                    <li><a id="nextPage" pageNum="{{nextPage}}">Next</a></li>
+                    {{/nextPage}}
+                </ul>
+                {{/hasPages}}
+                {{#movies}}
+                <div class="one-item clearfix" movieid="{{id}}">
+                    <div class="small-poster"
+                         style="background-image: url({{poster}});"></div>
+                    <div class="small-info"><span class="year">{{year}}</span><span class="title">{{title}}</span><span
+                            class="subtitle">{{description}}</span>
+                    </div>
+                </div>
+                {{/movies}}
+                {{#hasPages}}
+                <ul>
+                    {{#prevPage}}
+                    <li><a id="prevPage" pageNum="{{prevPage}}">Previous</a></li>
+                    {{/prevPage}}
+                    {{#nextPage}}
+                    <li><a id="nextPage" pageNum="{{nextPage}}">Next</a></li>
+                    {{/nextPage}}
+                </ul>
+                {{/hasPages}}
+            </div>
+
+        </div>
+    </div>
+</div>
