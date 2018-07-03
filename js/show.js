@@ -7,7 +7,7 @@ var show = (() => {
     var home = () => {
         $content.fadeOut(300, () => {
             $content.empty();
-            $searchField.val('matrix');
+            $searchField.val('');
             $home.fadeIn();
         })
     }
