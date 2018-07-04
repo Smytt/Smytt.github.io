@@ -51,11 +51,13 @@ var app = (() => {
         tmdb.findActorById(actorId);
     }
 
-    //attach initial events
-    $('#logo').on('click', loadHome);
-    $('#discover').on('click', discover);
-    $('#search').on('click', triggerSearchMovies);
-    $('#titleInput').on('keypress', triggerSearchMovies);
+    var start = () => {
+        app.loadHome();
+        $('#logo').on('click', loadHome);
+        $('#discover').on('click', discover);
+        $('#search').on('click', triggerSearchMovies);
+        $('#titleInput').on('keypress', triggerSearchMovies);
+    }
 
     return {
         loadHome,
@@ -63,8 +65,9 @@ var app = (() => {
         searchMovies,
         triggerSearchMovies,
         loadMovie,
-        loadActor
+        loadActor,
+        start
     }
 })();
 
-app.loadHome();
+app.start()
