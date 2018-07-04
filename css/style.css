@@ -394,3 +394,9 @@ main li a:hover, main li a.current {
 .movie-info .one-item:hover div {
     background-size: 100%;
 }
+
+.result-count {
+    text-align: center;
+    color: #fff;
+    font-size: 32px;
+}

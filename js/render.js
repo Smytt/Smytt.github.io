@@ -7,6 +7,7 @@ var render = (() => {
 
         var results = {
             movies: [],
+            total: response['total_results'].toLocaleString('en'),
             nextPage: null,
             prevPage: null,
             hasPages: false
